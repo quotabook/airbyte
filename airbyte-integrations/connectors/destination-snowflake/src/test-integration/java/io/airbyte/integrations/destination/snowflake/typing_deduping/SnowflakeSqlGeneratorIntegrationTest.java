@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import autovalue.shaded.com.google.common.collect.ImmutableMap;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.google.common.collect.ImmutableMap;
 import io.airbyte.cdk.db.factory.DataSourceFactory;
 import io.airbyte.cdk.db.jdbc.JdbcDatabase;
 import io.airbyte.cdk.db.jdbc.JdbcUtils;
@@ -275,11 +275,11 @@ public class SnowflakeSqlGeneratorIntegrationTest extends BaseSqlGeneratorIntegr
         () -> assertEquals(Optional.of("TABLE"), tableKind, "Table should be permanent, not transient"),
         () -> assertEquals(
             ImmutableMap.builder()
-                .put("_AIRBYTE_RAW_ID", "TEXT") // Note: these should be non-nullable, but isn't reflected in this test
+                .put("_AIRBYTE_RAW_ID", "TEXT")
                 .put("_AIRBYTE_EXTRACTED_AT", "TIMESTAMP_TZ")
                 .put("_AIRBYTE_META", "VARIANT")
-                .put("ID1", "NUMBER(38, 0)") // Note: these should be non-nullable, but isn't reflected in this test
-                .put("ID2", "NUMBER(38, 0)") // Note: these should be non-nullable, but isn't reflected in this test
+                .put("ID1", "NUMBER(38, 0)")
+                .put("ID2", "NUMBER(38, 0)")
                 .put("UPDATED_AT", "TIMESTAMP_TZ")
                 .put("STRUCT", "OBJECT")
                 .put("ARRAY", "ARRAY")
